@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Preference Survey</title>
+  <style>
+    /* Header Styling */
+    header {
+      background-color: cadetblue;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid black;
+    }
+
+    /* General Styling for Form and Content */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    form {
+      margin: 20px 0;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select {
+      margin: 10px 0;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: cadetblue;
+      color: white;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: darkcyan;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .back-button {
+      border: 1px solid black;
+      padding: 5px 10px;
+      background-color: lightgray;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .back-button:hover {
+      background-color: cadetblue;
+      color: white;
+    }
+
+  </style>
+  <script>
+    function suggestJob() {
+      const interest = document.getElementById('interest').value;
+      const jobType = document.querySelector('input[name="job_type"]:checked')?.value;
+      const workEnv = document.querySelector('input[name="work_env"]:checked')?.value;
+      let suggestion = "We suggest: ";
+
+      if (interest === "technology") suggestion += jobType === "Creative" ? "UI/UX Designer" : jobType === "Technical" ? "Software Engineer" : "Technical Product Manager";
+      else if (interest === "arts") suggestion += jobType === "Technical" ? "Digital Artist" : "Graphic Designer";
+      else if (interest === "business") suggestion += "Business Analyst";
+      else if (interest === "science") suggestion += "Research Scientist";
+      else if (interest === "healthcare") suggestion += "Healthcare Consultant";
+      else if (interest === "education") suggestion += "Educational Content Developer";
+
+      suggestion += workEnv === "Home" ? " (Remote)" : workEnv === "Hybrid" ? " (Hybrid)" : " (On-Site)";
+      document.getElementById('result').innerText = suggestion;
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <a href="javascript:history.back()" class="back-button">Back</a>
+    <h1>Job Preference Survey</h1>
+  </header>
+
+  <form onsubmit="return suggestJob();">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" required><br><br>
+    <label for="interest">Interest:</label><br>
+    <select id="interest" required>
+      <option value="" disabled selected>Select</option>
+      <option value="technology">Technology</option>
+      <option value="arts">Arts & Creativity</option>
+      <option value="business">Business</option>
+      <option value="science">Science</option>
+      <option value="healthcare">Healthcare</option>
+      <option value="education">Education</option>
+    </select><br><br>
+    <label>Job Type:</label><br>
+    <input type="radio" name="job_type" value="Creative"> Creative<br>
+    <input type="radio" name="job_type" value="Technical"> Technical<br>
+    <input type="radio" name="job_type" value="Both"> Both<br><br>
+    <label>Work Environment:</label><br>
+    <input type="radio" name="work_env" value="Office"> Office<br>
+    <input type="radio" name="work_env" value="Home"> Home<br>
+    <input type="radio" name="work_env" value="Hybrid"> Hybrid<br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <h2>Suggested Job:</h2>
+  <p id="result"></p>
+</body>
+</html>
+

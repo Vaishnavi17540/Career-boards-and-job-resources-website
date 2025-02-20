@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div style="border: 1px solid black;"> <a href ="javascript:history.back()"> Back </a> 
+    <title>LOG IN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #F5FFFA;
+        }
+        .form-container {
+            background-color: #FFE4E1;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container button {
+            background-color: #BC8F8F;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container button:hover {
+            background-color: #A05252;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+            
+            <label for="lastname">Second Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="work">Work Domain:</label>
+            <input type="text" id="work" name="work" required>
+            
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const output = document.getElementById('output');
+            output.textContent = "You are eligible";
+
+            setTimeout(() => {
+                window.location.href = "C:/Users/Vaishnavi/Downloads/HTML , CSS , JAVASCRIPT/CARRER BOARDS AND JOBS/MAIN.html";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
+
